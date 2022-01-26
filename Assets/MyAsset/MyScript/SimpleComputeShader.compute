@@ -1,0 +1,26 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel KernelFunction_A
+#pragma kernel KernelFunction_B
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWStructuredBuffer<int> intBuffer;
+float floatValue;
+
+
+
+[numthreads(4,1,1)]
+void KernelFunction_A (uint3 id : SV_GroupID,
+    uint3 groupThreadID : SV_GroupThreadID)
+{
+    intBuffer[groupThreadID.x] = groupThreadID.x * floatValue;
+
+
+}
+
+[numthreads(4,1,1)]
+void KernelFunction_B (uint3 id : SV_GroupID,
+    uint3 groupThreadID : SV_GroupThreadID) // : の後はセマンティクス
+{
+    intBuffer[groupThreadID.x] += 1;
+}

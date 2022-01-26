@@ -577,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1267008889}
   sampleDuration: 1
-  displayMode: 1
+  displayMode: 0
 --- !u!114 &1267008889
 MonoBehaviour:
   m_ObjectHideFlags: 0
